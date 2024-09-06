@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      color: #8e959f;
+      background-color: #141519;
+      font-family: 'Overpass Variable', sans-serif;
+    }
+
+    h2 {
+      font-weight: 700;
+    }
+    
+    .origins {
+      margin-top: 10px;
+    }
+
+    .box {
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #1a212b;
+      width: 25%;
+      margin: auto;
+      margin-top: 10%;
+      color: #f6fafb;
+      & h2 {
+        margin: 30px 0px 10px 0px;
+      }
+      & p {        
+        font-size: 15px;
+        font-weight: 400;
+      }
+      &  button {
+        background-color: orange;
+        padding: 10px;
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        & a {
+          color: #4b281d;
+          text-decoration: none;
+        }
+      }
+      & button:hover {
+        transition: 0.5s;
+        cursor: pointer;
+        background-color: #fc7613;
+      }
+    }
+
+    #star {
+      color: #fff;
+      background-color: #272e38;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      text-align: center;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .fondoCircular {
+      color: #fff;
+      background-color: #272e38;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 10px;
+      text-align: center;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    /* .fondoCircular:hover {
+      transition: 0.5s;
+      cursor: pointer;
+      background-color: #242b35;
+      color: orange;
+      scale: 130% ;
+    } */
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 30px;
+
+      & span {
+        color: hsl(25, 97%, 53%);
+        text-decoration: none;        
+      }
+    }
+
+    .valSelected {
+      background: #646464;
+      color: orange;
+    }
+
+    .valorate {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+    }  
+    
+    #errorMessage {
+      color: red;
+      margin-top: 25px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  
+  <div class="box">
+    <img id="star" src="./images/icon-star.svg" alt="Icon Star">
+    <h2>How did we do?</h2>
+    <p>  Please let us know how we did with your support request. All feedback is appreciated 
+      to help us improve our offering!</p>
+
+    <div class="valorate">
+      <p class="fondoCircular">1</p>
+      <p class="fondoCircular">2</p>
+      <p class="fondoCircular">3</p>
+      <p class="fondoCircular">4</p>
+      <p class="fondoCircular">5</p>
+    </div>
+    
+    
+    <button type="submit" id="submit-button">SUBMIT</button>
+
+    <footer>
+      <div class="challenge">
+        <small>
+          Challenge by <span>Frontend Mentor</span>
+        </small>
+      </div>
+      <div class="author">
+        <small>
+          Coded by <span>Markix & Tada</span>
+        </small>
+      </div>
+    </footer>
+
+    <p id="errorMessage"></p>
+
+    <!-- 
+
+    Los usuarios deberían poder:
+      
+    - Ver el diseño óptimo de la aplicación según el tamaño de la pantalla de su dispositivo. (optional)
+    ✅ Ver los estados de "hover" para todos los elementos interactivos en la página.
+    - Seleccionar y enviar una calificación numérica.
+    - Ver el estado de la tarjeta de "Gracias" después de enviar una calificación.
+    -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

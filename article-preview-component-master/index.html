@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Article preview component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      place-content: center;
+      height: 100vh;
+      font-family: 'Manrope', sans-serif;
+      background: hsl(212, 23%, 69%);
+    }
+
+    main {
+      display: flex;
+      align-items: center;
+      width: 65%;
+      margin: auto;
+
+      &.hide {
+        opacity: 0.4;
+      }
+
+      & #furniture {
+        & img {
+          width: 250px;
+          height: 250px;
+        }
+      }
+
+      & article {
+        background: #fff;
+        border-radius: 8px;
+
+        & #info {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          width: 90%;
+          margin: auto;
+
+          & h1 {
+            margin-top: 15px;
+          }
+
+          & #share-post {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & #author {
+              display: flex;
+              align-items: center;
+              gap: 16px;
+              margin-bottom: 20px;
+
+              & img {
+                width: 70px;
+                height: 70px;
+                border-radius: 50px;
+              }
+
+              & #author-details {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+              }
+            }
+          }
+
+          #share-icon {
+            background: hsl(210, 46%, 95%);
+            border: none;
+            border-radius: 50px;
+            padding: 15px;
+            cursor: pointer;
+
+            &:hover {
+              background: hsl(208, 28%, 85%);
+              scale: 110%;
+              transition: scale .3s ease;
+            }
+          }
+        }
+      }
+    }
+
+    #share-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      z-index: 1000; /* Debe estar por encima del overlay */
+      width: 25%;
+
+      &.active {
+        display: block;
+      }
+
+      & h2 {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      & .social-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+
+        & a {
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            scale: 110%;
+            transition: scale .3s ease;
+          }
+        }
+      }
+    }
+
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+
+      &.active {
+        display: block;
+      }
+    }
+
+    .attribution {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      gap: 25px;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section id="furniture">
+      <img src="./images/drawers.jpg" alt="Drawers">
+    </section>
+    <article>
+      <section id="info">
+        <h1>Shift the overall look and feel by adding these wonderful touches to furniture in your home</h1>
+        <p>
+          Ever been in a room and felt like something was missing? Perhaps
+          it felt slightly bare and uninviting. I’ve got some simple tips
+          to help you make any room feel complete.
+        </p>
+        <div id="share-post">
+          <div id="author">
+            <img src="./images/avatar-michelle.jpg" alt="Michelle Avatar">
+            <div id="author-details">
+              <span>Michelle Appleton</span>
+              <span>28 Jun 2020</span>
+            </div>
+          </div>
+          <button id="share-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
+              <path fill="#6E8098"
+                d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z" />
+            </svg>
+          </button>
+        </div>
+      </section>
+    </article>
+  </main>
+  <div id="modal-overlay"></div>
+  <div id="share-modal">
+    <h2>Share this article</h2>
+    <div class="social-icons">
+      <a href="#" target="_blank" aria-label="facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="url(#a)" height="40" width="40">
+          <defs>
+            <linearGradient x1="50%" x2="50%" y1="97.078%" y2="0%" id="a">
+              <stop offset="0%" stop-color="#0062E0" />
+              <stop offset="100%" stop-color="#19AFFF" />
+            </linearGradient>
+          </defs>ƒ
+          <path
+            d="M15 35.8C6.5 34.3 0 26.9 0 18 0 8.1 8.1 0 18 0s18 8.1 18 18c0 8.9-6.5 16.3-15 17.8l-1-.8h-4l-1 .8z" />
+          <path fill="#FFF"
+            d="m25 23 .8-5H21v-3.5c0-1.4.5-2.5 2.7-2.5H26V7.4c-1.3-.2-2.7-.4-4-.4-4.1 0-7 2.5-7 7v4h-4.5v5H15v12.7c1 .2 2 .3 3 .3s2-.1 3-.3V23h4z" />
+        </svg>
+      </a>
+      <a href="#" aria-label="twitter">
+        <svg viewBox="0 0 256 209" width="40" height="40" xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid">
+          <path
+            d="M256 25.45c-9.42 4.177-19.542 7-30.166 8.27 10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52 0 4.117.465 8.125 1.36 11.97-43.65-2.191-82.35-23.1-108.255-54.876-4.52 7.757-7.11 16.78-7.11 26.404 0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661 0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475-17.975 14.086-40.622 22.483-65.228 22.483-4.24 0-8.42-.249-12.529-.734 23.243 14.902 50.85 23.597 80.51 23.597 96.607 0 149.434-80.031 149.434-149.435 0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"
+            fill="#55acee" />
+        </svg>
+      </a>
+      <a href="#" target="_blank" aria-label="pinterest">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
+          <path fill="#CB1F27"
+            d="M0 128.002c0 52.414 31.518 97.442 76.619 117.239c-.36-8.938-.064-19.668 2.228-29.393c2.461-10.391 16.47-69.748 16.47-69.748s-4.089-8.173-4.089-20.252c0-18.969 10.994-33.136 24.686-33.136c11.643 0 17.268 8.745 17.268 19.217c0 11.704-7.465 29.211-11.304 45.426c-3.207 13.578 6.808 24.653 20.203 24.653c24.252 0 40.586-31.149 40.586-68.055c0-28.054-18.895-49.052-53.262-49.052c-38.828 0-63.017 28.956-63.017 61.3c0 11.152 3.288 19.016 8.438 25.106c2.368 2.797 2.697 3.922 1.84 7.134c-.614 2.355-2.024 8.025-2.608 10.272c-.852 3.242-3.479 4.401-6.409 3.204c-17.884-7.301-26.213-26.886-26.213-48.902c0-36.361 30.666-79.961 91.482-79.961c48.87 0 81.035 35.364 81.035 73.325c0 50.213-27.916 87.726-69.066 87.726c-13.819 0-26.818-7.47-31.271-15.955c0 0-7.431 29.492-9.005 35.187c-2.714 9.869-8.026 19.733-12.883 27.421a127.897 127.897 0 0 0 36.277 5.249c70.684 0 127.996-57.309 127.996-128.005C256.001 57.309 198.689 0 128.005 0C57.314 0 0 57.309 0 128.002" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="attribution">
+    <span>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</span>
+    <span>Coded by <a href="#">Markix.</a>.</span>    
+  </div>
+
+  <script>
+    const main = document.querySelector('main')
+    const shareIcon = document.querySelector('#share-icon')
+    const modalOverlay = document.querySelector('#modal-overlay')
+    const shareModal = document.querySelector('#share-modal')
+
+    function showModal() {
+      shareModal.classList.add('active')
+      modalOverlay.classList.add('active')
+      main.classList.add('hide')
+    }
+
+    shareIcon.addEventListener('click', showModal)
+
+    function hideModal() {
+      shareModal.classList.remove('active')
+      modalOverlay.classList.remove('active')
+      main.classList.remove('hide')
+    }
+
+    modalOverlay.addEventListener('click', hideModal)
+
+  </script>
+</body>
+
+</html>

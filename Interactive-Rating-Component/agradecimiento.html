@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarjeta-de-agradecimiento</title>
+    <style>
+      body {
+        background-color: #141519;
+        font-family: "Overpass Variable", sans-serif;
+      }
+
+      .agradecimiento {
+        padding: 20px;
+        border-radius: 15px;
+        background-color: #1a212b;
+        width: 35%;
+        margin: auto;
+        margin-top: 10%;
+        color: #f6fafb;
+        & h4 {
+          margin-left: 25px;
+          color: #fc7613;
+          font-size: 24px;
+        }
+        & p {
+          text-align: center;
+          
+        }
+
+        #punctuationMessage {
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="agradecimiento">
+      <h4>Gracias por dedicar tu tiempo a votar!</h4>
+      <p id="punctuationMessage"></p>
+    </div>
+
+    <script>      
+      const $punctuationMessage = document.querySelector('#punctuationMessage')
+
+      const valoration = localStorage.getItem('valoration')
+      
+      if (valoration) {
+        $punctuationMessage.innerHTML = `La valoración del usuario es: <span style="color: orange; font-weight: bold;">${valoration}</span>`
+      } else {
+        $punctuationMessage.innerHTML = `El usuario no ha votado.`
+      }
+    </script>
+  </body>
+</html>
