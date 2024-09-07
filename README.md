@@ -11,4 +11,4 @@ Some finished projects from the Frontend Mentor Website.
 
 - **Article Preview Component**
 
-![Article Preview Component Screenshot](image-3.png)
+![Article Preview Component Screenshot](image-4.png)
